@@ -1,1 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy & Security Standard | QR & Barcode Pro</title>
+    <style>
+        :root {
+            --primary: #4F46E5;
+            --primary-gradient: linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%);
+            --secondary-gradient: linear-gradient(135deg, #10B981 0%, #059669 100%);
+            --bg-page: #F8FAFC;
+            --bg-card: rgba(255, 255, 255, 0.95);
+            --text-main: #0F172A;
+            --text-muted: #475569;
+            --border: #E2E8F0;
+            --shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
+        }
 
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-page);
+            color: var(--text-main);
+            min-height: 100vh;
+            padding: 30px 16px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Animated Ambient Background Glows */
+        body::before, body::after {
+            content: '';
+            position: fixed;
+            width: 450px;
+            height: 450px;
+            border-radius: 50%;
+            filter: blur(90px);
+            z-index: -1;
+            opacity: 0.35;
+            animation: floatGlow 10s infinite alternate ease-in-out;
+        }
+        body::before {
+            background: #818CF8;
+            top: -100px;
+            left: -100px;
+        }
+        body::after {
+            background: #34D399;
+            bottom: -100px;
+            right: -100px;
+            animation-delay: -5s;
+        }
+
+        @keyframes floatGlow {
+            0% { transform: translateY(0px) scale(1); }
+            100% { transform: translateY(40px) scale(1.12); }
+        }
+
+        .container {
+            max-width: 900px;
+            width: 100%;
+            background: var(--bg-card);
+            backdrop-filter: blur(16px);
+            border-radius: 24px;
+            padding: 40px 32px;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Top Header Area */
+        .header {
+            border-bottom: 2px solid #EEF2FF;
+            padding-bottom: 28px;
+            margin-bottom: 30px;
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .app-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--primary-gradient);
+            color: #FFFFFF;
+            padding: 8px 16px;
+            border-radius: 999px;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+        }
+
+        /* Animated Language Selector */
+        .lang-selector-box {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: #EEF2FF;
+            padding: 8px 14px;
+            border-radius: 12px;
+            border: 1px solid #C7D2FE;
+            transition: all 0.3s ease;
+        }
+        .lang-selector-box:hover {
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.2);
+            border-color: #818CF8;
+        }
+        .lang-selector-box label {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        select {
+            padding: 6px 12px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-main);
+            background: #FFFFFF;
+            outline: none;
+            cursor: pointer;
+            transition: border 0.3s;
+        }
+        select:focus {
+            border-color: var(--primary);
+        }
+
+        h1 {
+            font-size: 30px;
+            color: #0F172A;
+            font-weight: 800;
+            margin-bottom: 8px;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Developer & Company Info Bar */
+        .info-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 12px;
+            margin-top: 16px;
+        }
+        .info-pill {
+            background: #F1F5F9;
+            padding: 12px 16px;
+            border-radius: 14px;
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .info-pill:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.04);
+            border-color: #CBD5E1;
+        }
+        .info-pill-icon {
+            font-size: 20px;
+            background: #FFFFFF;
+            width: 38px;
+            height: 38px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+        .info-pill-content h4 {
+            font-size: 11px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .info-pill-content p {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        /* Interactive Animated Policy Cards */
+        .policy-section {
+            background: #FFFFFF;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            margin-bottom: 16px;
+            overflow: hidden;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .policy-section:hover {
+            border-color: #818CF8;
+            box-shadow: 0 10px 20px -5px rgba(79, 70, 229, 0.08);
+            transform: translateY(-2px);
+        }
+        .policy-header {
+            padding: 18px 22px;
+            background: #FAFAFA;
+            border-bottom: 1px solid transparent;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .policy-header:hover {
+            background: #EEF2FF;
+        }
+        .policy-icon-badge {
+            width: 34px;
+            height: 34px;
+            border-radius: 10px;
+            background: var(--primary-light);
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 15px;
+        }
+        .policy-header h3 {
+            font-size: 16.5px;
+            font-weight: 700;
+            color: #1E293B;
+            flex-grow: 1;
+        }
+        .policy-body {
+            padding: 20px 22px;
+            color: var(--text-muted);
+            font-size: 14.5px;
+            line-height: 1.75;
+        }
+        .policy-body ul {
+            padding-left: 20px;
+            margin-top: 10px;
+        }
+        .policy-body li {
+            margin-bottom: 8px;
+        }
+        .highlight-chip {
+            display: inline-block;
+            background: #ECFDF5;
+            color: #065F46;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 6px;
+            margin-right: 4px;
+        }
+
+        /* Support & Contact Banner */
+        .contact-banner {
+            background: var(--primary-gradient);
+            color: #FFFFFF;
+            border-radius: 18px;
+            padding: 28px 24px;
+            margin-top: 36px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            box-shadow: 0 15px 30px -10px rgba(79, 70, 229, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+        .contact-banner::after {
+            content: '🛡️';
+            position: absolute;
+            font-size: 120px;
+            right: -20px;
+            bottom: -30px;
+            opacity: 0.12;
+            pointer-events: none;
+        }
+        .contact-banner h3 {
+            font-size: 20px;
+            margin-bottom: 6px;
+            font-weight: 800;
+        }
+        .contact-banner p {
+            font-size: 14px;
+            opacity: 0.92;
+            max-width: 500px;
+        }
+        .contact-email-btn {
+            background: #FFFFFF;
+            color: var(--primary);
+            padding: 12px 22px;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: 800;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        .contact-email-btn:hover {
+            transform: scale(1.05);
+            background: #F8FAFC;
+        }
+
+        .footer {
+            text-align: center;
+            font-size: 13px;
+            color: #94A3B8;
+            margin-top: 32px;
+            border-top: 1px solid var(--border);
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <div class="header-top">
+            <span class="app-badge">⚡ Official Privacy Policy</span>
+            <div class="lang-selector-box">
+                <label for="lang-select">🌐 Language:</label>
+                <select id="lang-select" onchange="applyLanguage(this.value)">
+                    <option value="en">English (US)</option>
+                    <option value="zh">简体中文 (Mainland China)</option>
+                    <option value="bn">বাংলা (Bengali)</option>
+                    <option value="ja">日本語 (Japanese)</option>
+                    <option value="ko">한국어 (Korean)</option>
+                    <option value="ru">Русский (Russian)</option>
+                    <option value="es">Español (Spanish)</option>
+                    <option value="hi">हिन्दी (Hindi)</option>
+                    <option value="fr">Français (French)</option>
+                    <option value="ar">العربية (Arabic)</option>
+                </select>
+            </div>
+        </div>
+
+        <h1 id="policy-main-title">Privacy Policy & Security Standards</h1>
+        <p style="color: var(--text-muted); font-size: 15px;" id="policy-desc">Comprehensive privacy disclosure for QR & Barcode Scanner + Generator app.</p>
+
+        <!-- Developer and Company Identity Bar -->
+        <div class="info-cards-grid">
+            <div class="info-pill">
+                <div class="info-pill-icon">👨‍💻</div>
+                <div class="info-pill-content">
+                    <h4>Lead Developer</h4>
+                    <p>MD Ismail</p>
+                </div>
+            </div>
+            <div class="info-pill">
+                <div class="info-pill-icon">🏢</div>
+                <div class="info-pill-content">
+                    <h4>Organization</h4>
+                    <p>Cybro Technology</p>
+                </div>
+            </div>
+            <div class="info-pill">
+                <div class="info-pill-icon">🔒</div>
+                <div class="info-pill-content">
+                    <h4>Architecture</h4>
+                    <p>100% Offline & On-Device</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Animated Dynamic Policy Content -->
+    <div id="dynamic-content"></div>
+
+    <!-- Contact Banner -->
+    <div class="contact-banner">
+        <div>
+            <h3 id="contact-head">Developer Support & Inquiries</h3>
+            <p id="contact-sub">Have questions or suggestions? Reach out directly to MD Ismail & the Cybro Technology engineering team.</p>
+        </div>
+        <a href="mailto:cybrotechnology1@gmail.com" class="contact-email-btn">
+            ✉️ Email Support
+        </a>
+    </div>
+
+    <div class="footer">
+        <p>© 2026 <strong>Cybro Technology</strong> • Developed by <strong>MD Ismail</strong>. All rights reserved.</p>
+    </div>
+</div>
+
+<script>
+const legalData = {
+    en: {
+        title: "Privacy Policy & Security Standards",
+        desc: "Comprehensive privacy disclosure for QR & Barcode Scanner + Generator.",
+        contactHead: "Developer Support & Inquiries",
+        contactSub: "Have questions or suggestions? Reach out directly to MD Ismail & Cybro Technology team.",
+        sections: [
+            {
+                icon: "🛡️",
+                title: "1. Core Philosophy & Offline-First Architecture",
+                body: "Our absolute priority is user privacy. This application is architected to operate entirely offline without requiring user registration, accounts, or remote telemetry. We do not collect, monitor, track, or monetize your personal identity, scanning habits, or generated content."
+            },
+            {
+                icon: "📷",
+                title: "2. Camera Access & Real-Time ML Kit Processing",
+                body: "Camera permission is requested solely to detect QR codes and barcodes live. All frame processing is executed strictly in volatile local memory utilizing Google ML Kit. We DO NOT record, store, capture snapshots in the background, or transmit camera feeds to any external cloud servers."
+            },
+            {
+                icon: "🖼️",
+                title: "3. Zero-Permission Photo Picker & Modern Storage (Android 7 to 16+)",
+                body: "In compliance with Google Play's modern security requirements (Android 13 to Android 16+):<ul><li><span class='highlight-chip'>Gallery Scanning</span> We use Android's zero-permission Photo Picker. The app only accesses the single image you explicitly select.</li><li><span class='highlight-chip'>Saving Generated Barcodes</span> Exported QR codes are saved directly into your device's standard Pictures folder via Android MediaStore API without requiring invasive storage permissions.</li></ul>"
+            },
+            {
+                icon: "💾",
+                title: "4. Local Encrypted Database & Data Ownership",
+                body: "Your scan history, custom generated codes, and favorites reside solely inside your device's private Room Database. You retain 100% ownership and can clear history or reset the database at any moment from the Settings screen."
+            },
+            {
+                icon: "📢",
+                title: "5. Advertisements (Google AdMob)",
+                body: "We integrate Google Mobile Ads SDK (AdMob) to display non-intrusive advertisements. Google AdMob may process non-personally identifiable advertising IDs according to Google's standard Privacy Policy to serve ads. No personally identifiable data is shared with advertisers."
+            },
+            {
+                icon: "⚖️",
+                title: "6. Developer Identity & Compliance Guarantee",
+                body: "This application is developed and maintained by <strong>MD Ismail</strong> under <strong>Cybro Technology</strong>. We guarantee full compliance with Google Play Developer Policies, GDPR, and international data privacy regulations."
+            }
+        ]
+    },
+    zh: {
+        title: "隐私政策与安全规范",
+        desc: "「二维码与条形码扫描生成器」完整隐私合规声明。",
+        contactHead: "开发者支持与疑问解答",
+        contactSub: "如有任何隐私疑问或技术支持，请直接联系 MD Ismail 及 Cybro Technology 团队。",
+        sections: [
+            {
+                icon: "🛡️",
+                title: "1. 核心原则与离线优先架构",
+                body: "保护用户隐私是我们最高准则。本应用采用纯本地离线架构，无需注册或登录。我们绝不收集、监控、分析或出售您的个人身份、扫描记录或自定义生成的内容。"
+            },
+            {
+                icon: "📷",
+                title: "2. 相机权限与本地 ML Kit 实时识别",
+                body: "相机权限仅用于通过 Google 本地 ML Kit 引擎实时识别条形码与二维码。所有画面仅在设备运行内存中即时运算，绝不会被录制、保存或上传至任何远程云端。"
+            },
+            {
+                icon: "🖼️",
+                title: "3. 零权限照片选择器与存储合规 (Android 7 至 16+)",
+                body: "严格遵循 Google Play 2026 最新标准（Android 13 至 Android 16+）：<ul><li><span class='highlight-chip'>相册扫码</span> 采用系统原生零权限 Photo Picker，应用仅读取您手动选中的单张图片。</li><li><span class='highlight-chip'>保存二维码</span> 通过 Android MediaStore 直接保存到相册，不索取任何宽泛的存储空间读取权限。</li></ul>"
+            },
+            {
+                icon: "💾",
+                title: "4. 本地加密数据库与数据控制权",
+                body: "您的历史记录与自定义条形码仅存储在您手机本地的 Room 数据库中。您拥有 100% 数据掌控权，随时可在「设置」中一键清空全部记录。"
+            },
+            {
+                icon: "📢",
+                title: "5. 广告服务 (Google AdMob)",
+                body: "应用集成 Google AdMob 服务。Google 可能会依据其公开隐私政策使用匿名广告标识符展示广告。我们不会向任何广告商泄露用户隐私。"
+            },
+            {
+                icon: "⚖️",
+                title: "6. 开发者信息与合规承诺",
+                body: "本应用由 <strong>MD Ismail</strong> 主导开发并由 <strong>Cybro Technology</strong> 发行运营，严格遵守国际数据隐私法规及 Google Play 开发者政策。"
+            }
+        ]
+    },
+    bn: {
+        title: "গোপনীয়তা নীতি ও নিরাপত্তা মানদণ্ড",
+        desc: "QR & Barcode Scanner + Generator অ্যাপের পূর্ণাঙ্গ তথ্য ও নিরাপত্তা নির্দেশিকা।",
+        contactHead: "ডেভেলপার সাপোর্ট ও যোগাযোগ",
+        contactSub: "যেকোনো মতামত বা প্রশ্নের জন্য সরাসরি MD Ismail ও Cybro Technology টিমের সাথে যোগাযোগ করুন।",
+        sections: [
+            {
+                icon: "🛡️",
+                title: "১. আমাদের মূল দর্শন ও অফলাইন আর্কিটেকচার",
+                body: "ব্যবহারকারীর তথ্যের সর্বোচ্চ নিরাপত্তা দেওয়াই আমাদের প্রথম লক্ষ্য। এই অ্যাপটি সম্পূর্ণ অফলাইন-বান্ধব। আমরা কোনো ব্যক্তিগত তথ্য, অ্যাকাউন্টের বিবরণ কিংবা স্ক্যানিং ইতিহাস সংগ্রহ, ট্র্যাক বা বিক্রি করি না।"
+            },
+            {
+                icon: "📷",
+                title: "২. ক্যামেরা পারমিশন ও অন-ডিভাইস ML Kit প্রসেসিং",
+                body: "ক্যামেরা পারমিশন শুধুমাত্র রিয়েল-টাইমে কিউআর ও বারকোড স্ক্যান করার জন্য নেওয়া হয়। Google ML Kit এর মাধ্যমে সকল প্রসেসিং ফোনের মেমরিতে সম্পন্ন হয়। কোনো ফ্রেম বা ছবি ক্লাউড সার্ভারে আপলোড বা সংরক্ষণ করা হয় না।"
+            },
+            {
+                icon: "🖼️",
+                title: "৩. জিরো-পারমিশন ফটো পিকার ও স্টোরেজ সুরক্ষা (Android 7 থেকে 16+)",
+                body: "গুগল প্লে স্টোরের আধুনিক পলিসি (Android 13 থেকে 16+) অনুসারে:<ul><li><span class='highlight-chip'>গ্যালারি স্ক্যান</span> জিরো-পারমিশন সিস্টেম ফটো পিকার ব্যবহার করা হয়, ফলে অ্যাপটি আপনার পুরো স্টোরেজ এক্সেস করে না।</li><li><span class='highlight-chip'>কিউআর ইমেজ সেভ</span> MediaStore API ব্যবহার করে সরাসরি পিকচার্স ফোল্ডারে সেভ হয়।</li></ul>"
+            },
+            {
+                icon: "💾",
+                title: "৪. লোকাল ডাটাবেস ও ব্যবহারকারীর সম্পূর্ণ নিয়ন্ত্রণ",
+                body: "আপনার সব হিস্ট্রি এবং তৈরি করা কোড সম্পূর্ণ নিরাপদে ডিভাইসের নিজস্ব Room ডাটাবেসে থাকে। আপনি যেকোনো সময় সেটিংস থেকে সব ডাটা এক ক্লিকে ডিলিট করতে পারবেন।"
+            },
+            {
+                icon: "📢",
+                title: "৫. বিজ্ঞাপন নীতি (Google AdMob)",
+                body: "অ্যাপটিতে বিজ্ঞাপন প্রদর্শনের জন্য Google AdMob ব্যবহৃত হয়। গুগল তাদের অফিসিয়াল প্রাইভেসি পলিসি অনুযায়ী অ্যানোনিমাস অ্যাডভার্টাইজিং আইডি ব্যবহার করতে পারে।"
+            },
+            {
+                icon: "⚖️",
+                title: "৬. ডেভেলপার পরিচিতি ও নিশ্চয়তা",
+                body: "এই অ্যাপ্লিকেশনটি <strong>MD Ismail</strong> দ্বারা ডেভেলপকৃত এবং <strong>Cybro Technology</strong> দ্বারা পরিচালিত। আমরা গুগল প্লে পলিসি ও আন্তর্জাতিক ডাটা আইনের প্রতি ১০০% প্রতিশ্রুতিবদ্ধ।"
+            }
+        ]
+    },
+    ja: {
+        title: "プライバシーポリシーとセキュリティ基準",
+        desc: "QR & バーコードリーダー + 生成器 公式プライバシー声明",
+        contactHead: "開発者サポート・お問い合わせ",
+        contactSub: "ご質問やサポートが必要な場合は、MD Ismail および Cybro Technology チームまでご連絡ください。",
+        sections: [
+            { icon: "🛡️", title: "1. 基本方針とオフライン設計", body: "完全オフライン動作設計により、ユーザー登録不要で個人情報の収集・外部送信は一切行いません。" },
+            { icon: "📷", title: "2. カメラ権限とオンデバイス処理", body: "Google ML Kitを用い、端末内のメモリ上でのみリアルタイム認識を行います。画像データがクラウドへ送信されることはありません。" },
+            { icon: "🖼️", title: "3. 安全な写真選択 (Android 7〜16+)", body: "権限不要のPhoto Pickerを使用し、お客様が選択した単一の画像のみを安全に処理します。" },
+            { icon: "💾", title: "4. 端末内データベース管理", body: "履歴はお客様の端末内Roomデータベースにのみ保存され、いつでも削除可能です。" },
+            { icon: "📢", title: "5. 広告配信 (Google AdMob)", body: "Google AdMobを利用して広告を表示します。個人を特定する情報は送信されません。" },
+            { icon: "⚖️", title: "6. 開発者情報", body: "本アプリは <strong>MD Ismail</strong> により開発され、<strong>Cybro Technology</strong> により運営されています。" }
+        ]
+    },
+    ko: {
+        title: "개인정보 처리방침 및 보안 표준",
+        desc: "QR 및 바코드 스캐너 + 생성기 공식 개인정보 보호 정책",
+        contactHead: "개발자 지원 및 문의",
+        contactSub: "문의사항이 있으시면 MD Ismail 및 Cybro Technology 팀으로 연락 바랍니다.",
+        sections: [
+            { icon: "🛡️", title: "1. 기본 원칙 및 오프라인 아키텍처", body: "본 앱은 완전한 오프라인으로 작동하며, 어떠한 개인 정보나 스캔 기록도 수집하거나 외부로 전송하지 않습니다." },
+            { icon: "📷", title: "2. 카메라 권한 및 기기 내 처리", body: "Google ML Kit을 사용하여 기기 내에서만 실시간으로 인식하며 서버로 사진을 전송하지 않습니다." },
+            { icon: "🖼️", title: "3. 무권한 사진 선택기 (Android 7~16+)", body: "불필요한 저장소 권한 없이 최신 시스템 Photo Picker를 통해 안전하게 처리합니다." },
+            { icon: "💾", title: "4. 로컬 데이터 관리", body: "모든 기록은 기기 내 Room 데이터베이스에만 저장되며 언제든지 삭제할 수 있습니다." },
+            { icon: "📢", title: "5. 광고 게재 (Google AdMob)", body: "Google AdMob 정책에 따라 안전하게 광고가 표시됩니다." },
+            { icon: "⚖️", title: "6. 개발자 정보", body: "본 앱은 <strong>MD Ismail</strong>이 개발하고 <strong>Cybro Technology</strong>에서 운영합니다." }
+        ]
+    },
+    ru: {
+        title: "Политика конфиденциальности и безопасность",
+        desc: "Официальное заявление о конфиденциальности QR & Barcode Scanner + Generator.",
+        contactHead: "Поддержка разработчика",
+        contactSub: "По всем вопросам обращайтесь к MD Ismail и команде Cybro Technology.",
+        sections: [
+            { icon: "🛡️", title: "1. Основные принципы и локальная работа", body: "Приложение работает полностью офлайн и не собирает, не отслеживает и не передает ваши данные." },
+            { icon: "📷", title: "2. Доступ к камере и обработка ML Kit", body: "Обработка кадров происходит исключительно в памяти устройства с помощью Google ML Kit без отправки в облако." },
+            { icon: "🖼️", title: "3. Безопасный выбор фото (Android 7–16+)", body: "Используется системный Photo Picker без запроса широких разрешений на чтение памяти." },
+            { icon: "💾", title: "4. Локальное хранение", body: "История хранится только в базе данных вашего смартфона и может быть удалена в любой момент." },
+            { icon: "📢", title: "5. Реклама (Google AdMob)", body: "Интегрирован Google AdMob согласно стандартной политике конфиденциальности Google." },
+            { icon: "⚖️", title: "6. Сведения о разработчике", body: "Приложение разработано <strong>MD Ismail</strong> под брендом <strong>Cybro Technology</strong>." }
+        ]
+    },
+    es: {
+        title: "Política de Privacidad y Seguridad",
+        desc: "Declaración de privacidad para QR & Barcode Scanner + Generator.",
+        contactHead: "Soporte del Desarrollador",
+        contactSub: "Para cualquier consulta, comuníquese con MD Ismail y Cybro Technology.",
+        sections: [
+            { icon: "🛡️", title: "1. Filosofía Fuera de Línea", body: "La aplicación funciona 100% sin conexión. No recopilamos ni compartimos sus datos personales." },
+            { icon: "📷", title: "2. Cámara y ML Kit en el Dispositivo", body: "El escaneo se procesa en tiempo real únicamente en la memoria local del dispositivo." },
+            { icon: "🖼️", title: "3. Selector de Fotos Seguro (Android 7 a 16+)", body: "Usamos el Photo Picker de Android sin requerir permisos invasivos de almacenamiento." },
+            { icon: "💾", title: "4. Base de Datos Local", body: "Su historial se almacena exclusivamente en su teléfono y puede borrarse en cualquier momento." },
+            { icon: "📢", title: "5. Publicidad (Google AdMob)", body: "Google AdMob muestra anuncios cumpliendo las normativas globales de privacidad." },
+            { icon: "⚖️", title: "6. Información del Desarrollador", body: "Desarrollado por <strong>MD Ismail</strong> para <strong>Cybro Technology</strong>." }
+        ]
+    },
+    hi: {
+        title: "गोपनीयता नीति और सुरक्षा मानक",
+        desc: "QR & Barcode Scanner + Generator की आधिकारिक गोपनीयता नीति।",
+        contactHead: "डेवलपर सहायता और संपर्क",
+        contactSub: "किसी भी प्रश्न के लिए MD Ismail और Cybro Technology से संपर्क करें।",
+        sections: [
+            { icon: "🛡️", title: "1. ऑफ़लाइन संरचना और गोपनीयता", body: "यह ऐप पूरी तरह से ऑफ़लाइन काम करता है और कोई व्यक्तिगत डेटा एकत्र नहीं करता है।" },
+            { icon: "📷", title: "2. कैमरा अनुमति और ऑन-डिवाइस प्रोसेसिंग", body: "Google ML Kit द्वारा केवल डिवाइस पर ही रियल-टाइम कोड स्कैन किया जाता है।" },
+            { icon: "🖼️", title: "3. सुरक्षित फोटो पिकर (Android 7 से 16+)", body: "हम बिना अतिरिक्त अनुमति के सिस्टम फोटो पिकर का उपयोग करते हैं।" },
+            { icon: "💾", title: "4. स्थानीय डेटाबेस नियंत्रण", body: "आपका इतिहास केवल फोन के रूम डेटाबेस में सुरक्षित रहता है जिसे कभी भी हटाया जा सकता है।" },
+            { icon: "📢", title: "5. विज्ञापन (Google AdMob)", body: "विज्ञापन Google AdMob की आधिकारिक नीतियों के अनुसार दिखाए जाते हैं।" },
+            { icon: "⚖️", title: "6. डेवलपर विवरण", body: "यह ऐप <strong>MD Ismail</strong> द्वारा विकसित और <strong>Cybro Technology</strong> द्वारा संचालित है।" }
+        ]
+    },
+    fr: {
+        title: "Politique de Confidentialité et Sécurité",
+        desc: "Déclaration de confidentialité pour QR & Barcode Scanner + Generator.",
+        contactHead: "Support Développeur",
+        contactSub: "Contactez directement MD Ismail et l'équipe Cybro Technology.",
+        sections: [
+            { icon: "🛡️", title: "1. Confidentialité Hors Ligne", body: "L'application fonctionne hors ligne sans collecter ni vendre vos données personnelles." },
+            { icon: "📷", title: "2. Traitement Caméra Local (ML Kit)", body: "La caméra est analysée en temps réel dans la mémoire volatile de l'appareil." },
+            { icon: "🖼️", title: "3. Sélecteur de Photos Sécurisé (Android 7 à 16+)", body: "Utilisation du Photo Picker officiel sans accès étendu au stockage." },
+            { icon: "💾", title: "4. Base de Données Locale", body: "Vos données restent stockées uniquement sur votre téléphone." },
+            { icon: "📢", title: "5. Publicité (Google AdMob)", body: "Affichage des annonces via Google AdMob selon les règles de Google." },
+            { icon: "⚖️", title: "6. Identité du Développeur", body: "Développé par <strong>MD Ismail</strong> sous la marque <strong>Cybro Technology</strong>." }
+        ]
+    },
+    ar: {
+        title: "سياسة الخصوصية ومعايير الأمان",
+        desc: "بيان الخصوصية الرسمي لتطبيق ماسح ومولد QR والباركود.",
+        contactHead: "دعم المطور والاستفسارات",
+        contactSub: "لأية أسئلة يرجى التواصل مباشرة مع MD Ismail وفريق Cybro Technology.",
+        sections: [
+            { icon: "🛡️", title: "1. هيكلية العمل بدون إنترنت", body: "يعمل التطبيق بالكامل دون اتصال بالإنترنت ولا يجمع أو يشارك بياناتك الشخصية." },
+            { icon: "📷", title: "2. معالجة الكاميرا على الجهاز", body: "تتم معالجة الكاميرا في ذاكرة الجهاز المؤقتة فقط عبر Google ML Kit." },
+            { icon: "🖼️", title: "3. منتقي الصور الآمن (Android 7 إلى 16+)", body: "نستخدم منتقي صور النظام دون طلب أذونات وصول شاملة للتخزين." },
+            { icon: "💾", title: "4. قاعدة البيانات المحلية", body: "يتم حفظ السجل فقط على جهازك ويمكنك حذفه في أي وقت." },
+            { icon: "📢", title: "5. الإعلانات (Google AdMob)", body: "تُعرض الإعلانات عبر Google AdMob وفق سياسات الخصوصية المعتمدة." },
+            { icon: "⚖️", title: "6. معلومات المطور", body: "تم التطوير بواسطة <strong>MD Ismail</strong> تحت مظلة <strong>Cybro Technology</strong>." }
+        ]
+    }
+};
+
+function applyLanguage(lang) {
+    const cur = legalData[lang] || legalData.en;
+    document.getElementById('policy-main-title').innerText = cur.title;
+    document.getElementById('policy-desc').innerText = cur.desc;
+    document.getElementById('contact-head').innerText = cur.contactHead;
+    document.getElementById('contact-sub').innerText = cur.contactSub;
+
+    let html = '';
+    cur.sections.forEach((sec, idx) => {
+        html += `
+            <div class="policy-section">
+                <div class="policy-header">
+                    <div class="policy-icon-badge">${sec.icon}</div>
+                    <h3>${sec.title}</h3>
+                </div>
+                <div class="policy-body">
+                    ${sec.body}
+                </div>
+            </div>
+        `;
+    });
+    document.getElementById('dynamic-content').innerHTML = html;
+}
+
+// Initial render
+applyLanguage('en');
+</script>
+</body>
+</html>
